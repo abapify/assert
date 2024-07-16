@@ -20,6 +20,8 @@ class ltcl_main implementation.
     assert( 1 )->ne( 2 ).
     assert( new ltcl_main( ) )->bound( ).
     assert( not_bound )->not_bound( ).
+    assert( abap_true )->true(  ).
+    assert( abap_false )->false(  ).
 
   endmethod.
 

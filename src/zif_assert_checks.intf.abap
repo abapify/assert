@@ -9,6 +9,10 @@ INTERFACE zif_assert_checks
     not_initial FOR zif_assert_checks_int~not_initial,
     equals FOR zif_assert_checks_int~equals,
     differs FOR zif_assert_checks_int~differs,
+    true for zif_assert_checks_int~true,
+    false for zif_assert_checks_int~false,
+
+    " extra aliases
     eq FOR zif_assert_checks_int~equals,
     ne FOR zif_assert_checks_int~differs.
 

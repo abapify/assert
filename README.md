@@ -21,3 +21,12 @@ CLASS ltcl_main DEFINITION INHERITING FROM zcl_assert
 ...
 endclass.
 ```
+
+then later in your code you can just use something like:
+```
+    assert( 1 )->not_initial( ).
+    assert( 1 )->eq( 1 ).
+    assert( 1 )->ne( 2 ).
+    assert( new ltcl_main( ) )->bound( ).
+    assert( not_bound )->not_bound( ).
+```

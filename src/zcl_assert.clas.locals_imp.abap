@@ -40,4 +40,10 @@ CLASS lcl_assert_checks IMPLEMENTATION.
     ASSIGN actual->* TO FIELD-SYMBOL(<actual>).
     cl_abap_unit_assert=>assert_not_initial( <actual> ).
   ENDMETHOD.
+  METHOD zif_assert_checks~ne.
+  ASSERT actual IS BOUND.
+    ASSIGN actual->* TO FIELD-SYMBOL(<actual>).
+    cl_abap_unit_assert=>assert_differs( act = <actual> exp = expected ).
+  ENDMETHOD.
+
 ENDCLASS.

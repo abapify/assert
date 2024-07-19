@@ -90,29 +90,27 @@ class lcl_assert_local definition.
   public section.
     class-methods:
          assert_false
-            importing act type any raising lcx_assert,
+            importing act type any,
          assert_true
-            importing act type any raising lcx_assert,
+            importing act type any ,
         assert_bound
-            importing act type any raising lcx_assert,
+            importing act type any ,
         assert_not_bound
-            importing act type any raising lcx_assert,
+            importing act type any ,
         assert_initial
-            importing act type any raising lcx_assert,
+            importing act type any ,
         assert_not_initial
-            importing act type any raising lcx_assert,
+            importing act type any ,
         assert_equals
             importing
             act type any
-            exp type any
-            raising lcx_assert,
+            exp type any,
        assert_differs
             importing
             act type any
-            exp type any
-            raising lcx_assert.
+            exp type any.
   private section.
-    class-methods assert raising lcx_assert.
+    class-methods assert.
 endclass.
 " please note that all conditions inside methods are inverted
 " because only if it's not met we raise the exception

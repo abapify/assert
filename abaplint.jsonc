@@ -2,8 +2,10 @@
   "global": {
     "files": "/src/**/*.*"
   },
-  "dependencies": [
+"dependencies": [
     {
+      "url": "https://github.com/abaplint/deps",
+      "files": "/src/**/*.*"
     }
   ],
   "syntax": {

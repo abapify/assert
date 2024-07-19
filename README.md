@@ -37,7 +37,7 @@ then later in your code you can just use something like:
 
 It might be helpful to use assert interface in a nomral runtime, not only in unit tests. 
 ```abap
-data(assert) = new zcl_assert_local( ).
+data(assert) = zcl_assert=>get_local( ).
 assert->assert( 1 )->not_initial( ).
 ```
 or if your class is inherited from ZCL_ASSERT_LOCAL then simply like this

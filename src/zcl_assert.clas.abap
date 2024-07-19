@@ -4,6 +4,7 @@ CLASS zcl_assert DEFINITION
 
   PUBLIC SECTION.
   INTERFACES zif_assert.
+
   ALIASES assert for zif_assert~assert.
   PROTECTED SECTION.
   data local type abap_bool.

@@ -1,13 +1,15 @@
-INTERFACE zif_assert_checks_int
-  PUBLIC .
-  METHODS:
+interface zif_assert_checks_int
+  public .
+  methods:
     bound,
     not_bound,
     initial,
     not_initial,
-    equals IMPORTING expected TYPE any,
-    differs IMPORTING expected TYPE any,
+    equals
+      importing expected type any,
+    differs
+      importing expected type any,
     true,
     false.
 
-ENDINTERFACE.
+endinterface.

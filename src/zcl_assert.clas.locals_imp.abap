@@ -24,7 +24,7 @@ class lcl_assert_checks implementation.
   method constructor.
     me->actual = ref #( actual ).
     if local eq abap_true.
-      me->assertion_class = 'LCL_ASSERT_LOCAL'.
+      me->assertion_class = 'LCL_LOCAL_CHECKS'.
     endif.
   endmethod.
   method params.
@@ -86,7 +86,7 @@ endclass.
 
 " local assetions ( outside of unit tests )
 " must be CL_ABAP_UNIT_ASSERT compatible (only method/parameters used in lcl_assert_checks class)
-class lcl_assert_local definition.
+class lcl_local_checks definition.
   public section.
     class-methods:
          assert_false
@@ -114,7 +114,7 @@ class lcl_assert_local definition.
 endclass.
 " please note that all conditions inside methods are inverted
 " because only if it's not met we raise the exception
-class lcl_assert_local implementation.
+class lcl_local_checks implementation.
   method assert.
     raise resumable exception type lcx_assert.
   endmethod.
@@ -158,5 +158,15 @@ class lcl_assert_local implementation.
     assert(  ).
   endmethod.
 
+endclass.
 
+class lcl_assert_local definition inheriting from zcl_assert.
+  public section.
+  methods constructor.
+endclass.
+class lcl_assert_local implementation.
+  method constructor.
+    super->constructor( ).
+    me->is_local = abap_true.
+  endmethod.
 endclass.

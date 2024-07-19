@@ -6,14 +6,12 @@ class ltcl_main definition final for testing inheriting from zcl_assert
   public section.
 
   private section.
-    methods positive importing that type ref to zif_assert raising zcx_assert.
-    methods negative importing that type ref to zif_assert raising zcx_assert..
+    methods positive importing that type ref to zif_assert .
+    methods negative importing that type ref to zif_assert .
     methods unit for testing
       raising
         zcx_assert.
-    methods test_local for testing
-      raising
-        zcx_assert.
+    methods test_local for testing.
 
 endclass.
 
@@ -49,7 +47,7 @@ class ltcl_main implementation.
   endmethod.
 
   method test_local.
-    data(assert) = new zcl_assert_local( ).
+    data(assert) = zcl_assert=>get_local(  ).
     " positive test - no exceptions expected
     positive( assert ).
     " negative test

@@ -1,9 +1,9 @@
-# Assert library  
+# Assert library
 
 Following official [documentation](https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/index.htm?file=abapmethods_testing.htm) we're supposed to write unit tests using following template
 ```abap
 cl_abap_unit_assert=>assert_equals( act = myclass=>text
-                                        exp = 'X' ).
+                                    exp = 'X' ).
 ```
 
 The only function this library delivers - it allows us to use shorter construction like this:
@@ -12,7 +12,7 @@ assert( myclass=>text )->equals( 'X' ).
 ```
 
 ## Usage in unit tests
-To use this library you need to use `ZCL_ASSERT` class as a base class for your test class. 
+To use this library you need to use `ZCL_ASSERT` class as a base class for your test class.
 ```abap
 CLASS ltcl_main DEFINITION INHERITING FROM zcl_assert
     FINAL FOR TESTING
@@ -35,7 +35,7 @@ then later in your code you can just use something like:
 
 ## Local asserts
 
-It might be helpful to use assert interface in a nomral runtime, not only in unit tests. 
+It might be helpful to use assert interface in a normal runtime, not only in unit tests.
 ```abap
 data(assert) = zcl_assert=>get_local( ).
 assert->assert( 1 )->not_initial( ).
@@ -72,7 +72,7 @@ One more feature which local asserts bring is a resumable exception. For example
 try.
   assert( ref )->is_bound( ).
 catch zcx_assert.
-  " some exception handling  
+  " some exception handling
 endtry.
 ```
 

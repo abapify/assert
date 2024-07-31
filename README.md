@@ -40,7 +40,7 @@ It might be helpful to use assert interface in a normal runtime, not only in uni
 data(assert) = new zcl_assertable( ).
 assert->assert( 1 )->not_initial( ).
 ```
-or if your class is inherited from ZCL_ASSERT_LOCAL then simply like this
+or if your class is inherited from ZCL_ASSERTABLE then simply like this
 ```abap
 assert( 1 )->not_initial( ).
 ```

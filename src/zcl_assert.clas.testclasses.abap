@@ -5,11 +5,14 @@ class ltcl_main definition final for testing inheriting from zcl_assert
 
   public section.
 
+    methods unit for testing.
+    methods test_local for testing.
+
   private section.
     methods positive importing that type ref to zif_assert .
     methods negative importing that type ref to zif_assert .
-    methods unit for testing.
-    methods test_local for testing.
+
+
 
 endclass.
 

@@ -1,4 +1,4 @@
-interface zif_assert_checks_int
+interface zif_assertable_checks_int
   public .
   methods:
     bound,

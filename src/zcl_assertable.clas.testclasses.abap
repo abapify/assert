@@ -1,5 +1,6 @@
 *"* use this source file for your ABAP unit test classes
-class ltcl_main definition final for testing inheriting from zcl_assert
+*"* use this source file for your ABAP unit test classes
+class ltcl_main definition final for testing inheriting from zcl_assertable_unit
   duration short
   risk level harmless.
 
@@ -9,10 +10,8 @@ class ltcl_main definition final for testing inheriting from zcl_assert
     methods test_local for testing.
 
   private section.
-    methods positive importing that type ref to zif_assert .
-    methods negative importing that type ref to zif_assert .
-
-
+    methods positive importing that type ref to zif_assertable .
+    methods negative importing that type ref to zif_assertable .
 
 endclass.
 
@@ -48,7 +47,7 @@ class ltcl_main implementation.
   endmethod.
 
   method test_local.
-    data(assert) = zcl_assert=>get_local(  ).
+    data(assert) = new zcl_assertable( ).
     " positive test - no exceptions expected
     positive( assert ).
     " negative test
@@ -56,7 +55,7 @@ class ltcl_main implementation.
     data errors_caught type i.
     try.
         negative( assert ).
-      catch before unwind lcx_assert.
+      catch before unwind zcx_assertable.
         errors_caught = errors_caught + 1.
         resume.
     endtry.
@@ -66,7 +65,7 @@ class ltcl_main implementation.
   endmethod.
 
   method unit.
-    positive( new zcl_assert( ) ).
+    positive( new zcl_assertable_unit( ) ).
   endmethod.
 
 endclass.

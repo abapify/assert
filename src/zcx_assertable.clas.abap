@@ -1,4 +1,4 @@
-class zcx_assert definition
+class zcx_assertable definition
   public
   inheriting from cx_no_check
   create public .
@@ -18,7 +18,7 @@ endclass.
 
 
 
-class zcx_assert implementation.
+class zcx_assertable implementation.
 
 
   method constructor ##ADT_SUPPRESS_GENERATION.

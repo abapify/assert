@@ -12,9 +12,9 @@ assert( myclass=>text )->equals( 'X' ).
 ```
 
 ## Usage in unit tests
-To use this library you need to use `ZCL_ASSERT` class as a base class for your test class.
+To use this library you need to use `ZCL_ASSERTABLE_UNIT` class as a base class for your test class.
 ```abap
-CLASS ltcl_main DEFINITION INHERITING FROM zcl_assert
+CLASS ltcl_main DEFINITION INHERITING FROM zcl_assertable_unit
     FINAL FOR TESTING
   DURATION SHORT
   RISK LEVEL HARMLESS.
@@ -37,7 +37,7 @@ then later in your code you can just use something like:
 
 It might be helpful to use assert interface in a normal runtime, not only in unit tests.
 ```abap
-data(assert) = zcl_assert=>get_local( ).
+data(assert) = new zcl_assertable( ).
 assert->assert( 1 )->not_initial( ).
 ```
 or if your class is inherited from ZCL_ASSERT_LOCAL then simply like this
@@ -48,14 +48,14 @@ alternatively you can implement zif_assert interface right in your class:
 ```abap
 class zcl_your_class definition.
   public section.
-    interfaces zif_assert.
+    interfaces zif_assertable.
   private section.
-    aliases assert for zif_assert~assert.
+    aliases assert for zif_assertable~assert.
     methods some_method.
 endclass.
 class zcl_your_class implementation.
-  method zif_assert~assert.
-    result = new zcl_assert_local( actual = actual ).
+  method zif_assertable~assert.
+    result = new zcl_assertable( actual = actual ).
   endmethod.
   method some_method.
     assert( some_value )->eq( another_value ).
@@ -71,17 +71,17 @@ One more feature which local asserts bring is a resumable exception. For example
 ```abap
 try.
   assert( ref )->is_bound( ).
-catch zcx_assert.
+catch zcx_assertable.
   " some exception handling
 endtry.
 ```
 
-Since ZCX_ASSERT is a no-check exception you can bring it higher and do even more advanced logic
+Since `ZCX_ASSERTABLE` is a no-check exception you can bring it higher and do even more advanced logic
 ```abap
 method main.
   try.
     do_something( ref ).
-  catch before unwind zcx_assert.
+  catch before unwind zcx_assertable.
     " fix the problem here
     ref = new #( ).
     resume.

@@ -1,6 +1,6 @@
 # Assert library
 
-> [Disclaimer] In the beginning this project contained class ZCL_ASSERT. We had to rename it becase the class was already [reserved](https://github.com/abapify/assert/issues/6) in dotabap registry.
+> In the beginning this project contained class ZCL_ASSERT. We had to rename it becase the class was already [reserved](https://github.com/abapify/assert/issues/6) in dotabap registry.
 
 Following official [documentation](https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/index.htm?file=abapmethods_testing.htm) we're supposed to write unit tests using following template
 ```abap

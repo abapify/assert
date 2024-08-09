@@ -35,6 +35,13 @@ then later in your code you can just use something like:
     assert( abap_false )->false( ).
 ```
 
+## Working with references
+
+You might have a reference pointing to the value and you would like to compare not the reference but the value it refers to. Instead of dereferencing in your using test you can write something like:
+```
+assert( data_reference )->ref( )->equals( 'Some value' ).
+```
+Please notice that it expects that actual value is a data refence and will throw an error if it's not. 
 ## Local asserts
 
 It might be helpful to use assert interface in a normal runtime, not only in unit tests.

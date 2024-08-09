@@ -6,7 +6,11 @@
     {
       "url": "https://github.com/abaplint/deps",
       "files": "/src/**/*.*"
-    }
+    },
+{
+      "url": "https://github.com/abapify/throw",
+      "files": "/src/**/*.*"
+    },
   ],
   "syntax": {
     "version": "v755",

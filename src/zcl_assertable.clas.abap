@@ -20,4 +20,5 @@ class zcl_assertable implementation.
     " by default is local
     result = abap_false.
   endmethod.
+
 endclass.

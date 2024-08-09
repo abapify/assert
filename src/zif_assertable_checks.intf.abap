@@ -16,4 +16,6 @@ INTERFACE zif_assertable_checks
     eq FOR zif_assertable_checks_int~equals,
     ne FOR zif_assertable_checks_int~differs.
 
+    methods ref returning value(result) type ref to zif_assertable_checks raising cx_static_check.
+
 ENDINTERFACE.
